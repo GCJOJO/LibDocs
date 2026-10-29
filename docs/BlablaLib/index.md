@@ -12,7 +12,7 @@ Download the mod on [Curseforge](https://www.curseforge.com/minecraft/mc-mods/bl
 
 
 If you are a Modpack Developer you can install this mod and write a datapack to create your own dialogues.
-Follow the tutorial [here](tutorials/creating_dialogues.md) for more info.
+Follow the tutorial [here](tutorials/1_creating-dialogues.md) for more info.
 
 # Installing as a Dependency for your mod
 

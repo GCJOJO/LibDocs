@@ -14,7 +14,7 @@ This library adds features such as : <br>
     - Camera Movement
     - Fade In/Out
     - Screen Shakes
-- Tweening / Animation System
+- Tweening System
 - Backported Mannequins from 1.21.9
 - Persistent Player Data Storage System
 - Custom Events
