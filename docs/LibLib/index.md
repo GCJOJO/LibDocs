@@ -25,6 +25,8 @@ This library adds features such as : <br>
 This mod does not add anything by itself, it is a library other mods depends on.<br>
 If no mod depends on this library in your modpack, you don't need to install LibLib.
 
+Download the more on [Curseforge](https://www.curseforge.com/minecraft/mc-mods/liblib) or [Modrinth](https://modrinth.com/mod/liblib-gcjojo).
+
 ## As a Mod Developer
 
 Simply add this to your build.gradle file to add LibLib as a dependency for your mod.
