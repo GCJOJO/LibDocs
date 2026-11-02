@@ -3,7 +3,7 @@
 BlablaLib implements a custom NPC System and Entity. <br>
 To create your NPC Entity just use the `/summon` command : 
 
-``/summon blablalib:npc ~ ~ ~ {definition:"my_mod_id:my_custom_npc_definition"}``
+``/summon blablalib:npc ~ ~ ~ {Definition:"my_mod_id:my_custom_npc_definition"}``
 
 But wait, what is a NPC Definition ?
 
