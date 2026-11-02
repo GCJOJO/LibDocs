@@ -73,4 +73,4 @@ Inside any dialogue file you can define the different speakers that may speak in
 
 </div>
 
-To read more about the different actions you can perform in a dialogue, check out the [Actions](../actions.md) page.
+To read more about the different actions you can perform in a dialogue, check out the [Actions](../1-actions.md) page.
