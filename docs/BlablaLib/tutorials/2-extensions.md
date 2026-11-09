@@ -16,7 +16,7 @@ For more complex actions, check what methods are available in the `DialogueActio
 ```java
 public class MyCustomAction extends DialogueAction {
 
-    public static final StreamCodec<RegistryFriendlyByteBuf, DialogueMessage> CUSTOM_ACTION_STREAM_CODEC = StreamCodec.composite(
+    public static final StreamCodec<RegistryFriendlyByteBuf, MyCustomAction> CUSTOM_ACTION_STREAM_CODEC = StreamCodec.composite(
         ByteBufCodecs.STRING_UTF8, MyCustomAction::getMessage,
         MyCustomAction::new
     );
@@ -62,6 +62,10 @@ Somewhere in your mod initialization code, you can register your action like thi
 
 DialogueManager.registerCustomAction(ResourceLocation.fromNamespaceAndPath("my_mod", "my_custom_action"), MyCustomAction.class);
 ```
+
+!!! note
+    `registerCustomAction` forces the initialization of your class, so its static `TYPE` field (and its network codec) is registered right away. <br>
+    Make sure to register your action on **both** the client and the server.
 
 ## Overriding existing actions
 

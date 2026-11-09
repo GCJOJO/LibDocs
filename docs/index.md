@@ -15,3 +15,5 @@ BlablaLib is a library used to make custom dialogues inside of Minecraft.<br>
 It can be used as a Mod Dependency or directly with Datapacks<br>
 
 More info [here](BlablaLib/index.md)
+
+You can write and preview your dialogues with the [BlablaLib Editor](https://gcjojo.github.io/BlablaLib-Editor/) ([how to use it](BlablaLib/tutorials/3-dialogue-editor.md)).

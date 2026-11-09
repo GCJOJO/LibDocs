@@ -26,9 +26,9 @@ Inside any dialogue file you can define the different speakers that may speak in
 ```json
 {
   "speakers" : [
-    { "id(1)" : "my_datapack:speaker1", "name(2)": "Speaker 1", "color(3)": "FFFFFFFF", "sounds(4)" : [] },
-    { "id(1)" : "my_datapack:speaker2", "name(2)": "Speaker 2", "color(3)": "FFFF0000", "sounds(4)" : ["block.note_block.banjo"] },
-    { "id(1)" : "my_datapack:speaker3", "name(2)": "Speaker 3", "color(3)": "FFFFFFFF", "sounds(4)" : ["block.note_block.xylophone", "block.note_block.flute", "block.note_block.basedrum", "block.mud.fall"] },
+    { "id(1)" : "my_datapack:speaker1", "name(2)": "Speaker 1", "color(3)": "#FFFFFF", "sounds(4)" : [] },
+    { "id(1)" : "my_datapack:speaker2", "name(2)": "Speaker 2", "color(3)": "#FF0000", "sounds(4)" : ["block.note_block.banjo"] },
+    { "id(1)" : "my_datapack:speaker3", "name(2)": "Speaker 3", "color(3)": "#FFFFFF", "sounds(4)" : ["block.note_block.xylophone", "block.note_block.flute", "block.note_block.basedrum", "block.mud.fall"] },
   ]
 }
 ```
@@ -36,7 +36,7 @@ Inside any dialogue file you can define the different speakers that may speak in
 
 1.   The unique identifier of the speaker
 2.   The name of the speaker, can be a raw string or a localization key like `speaker.speaker1.name`
-3.   The color of the speaker's name
+3.   The color of the speaker's name, a hex string like `#FF0000` or `#FF0000FF` (`#RRGGBBAA`), or a color name like `red`. Invalid colors default to white.
 4.   The sounds the dialogue will make when a letter appears on screen. If there are multiple sounds, a random one will be chosen for each letter. 
 
 # Creating Dialogues
@@ -74,3 +74,6 @@ Inside any dialogue file you can define the different speakers that may speak in
 </div>
 
 To read more about the different actions you can perform in a dialogue, check out the [Actions](../1-actions.md) page.
+
+!!! tip
+    Instead of writing the JSON by hand, you can use the [Dialogue Editor](3-dialogue-editor.md).

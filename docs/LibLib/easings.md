@@ -2,6 +2,9 @@
 
 The easings in the library have been based off of [easing.net](https://easings.net/).
 
+!!! note
+    `Easings.get(name)` returns `linear` if no easing with this name exists, so an unknown easing in a JSON file will fall back to `linear`.
+
 ## Simple Easings
 
 ### Linear

@@ -31,6 +31,8 @@ Download the more on [Curseforge](https://www.curseforge.com/minecraft/mc-mods/l
 
 Simply add this to your build.gradle file to add LibLib as a dependency for your mod.
 
+The current version of LibLib is `0.2.2-mc1.21.1`.
+
 ```groovy title="build.gradle"
 repositories{
     maven {

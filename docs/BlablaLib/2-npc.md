@@ -75,7 +75,31 @@ They should look like this :
 
 </div>
 
+!!! warning "Renamed field"
+    The default value of a variable is now defined with `default_value` (it used to be `defaultValue`). <br>
+    Update your old NPC Definitions, otherwise the variables will fail to load.
 
+## Per-Player State
+
+Each player has their own state for every NPC : the current state and the values of the variables are stored **per player**.<br>
+For example, if a player talks to Bob and `has_said_hello` becomes `true`, Bob will still be in his `idle` state for the other players.
+
+The state of each player is saved with the NPC entity (in its `PlayerData` NBT tag), so it is kept when the world is reloaded.<br>
+When the NPC is loaded, its visual state is sent again to every connected player.
+
+## Changing Variables from a Dialogue
+
+The variables of an NPC can be modified from a dialogue using the [NPC Action](1-actions.md#npc-action) :
+
+```json
+{
+  "action" : "blablalib:npc",
+  "npc" : 0,
+  "variable" : "has_said_hello",
+  "type" : "bool",
+  "value" : true
+}
+```
 
 ## Variable Types
 
@@ -142,7 +166,7 @@ This condition verifies if the player is currently in a dialogue
 ```json
 "condition": 
 {
-    "type": "blablalib:is_in_dialogue",
+    "type": "blablalib:is_in_dialogue"
 }
 ```
 
@@ -175,7 +199,7 @@ Verifies if the different inner conditions are all true for the And Condition or
         },
         {
             "type" : "blablalib:equals",
-            "variable" : "my_variable"
+            "variable" : "my_variable",
             "value" : "Bob"
         }
     ]
@@ -193,14 +217,14 @@ This condition verifies that only one of the two inner conditions is true.
 ```json
 "condition": 
 {
-    "type(1)": "blablalib:xor",
+    "type": "blablalib:xor",
     "conditions" : [
         {
             "type" : "blablalib:is_in_dialogue"
         },
         {
             "type" : "blablalib:equals",
-            "variable" : "my_variable"
+            "variable" : "my_variable",
             "value" : "Bob"
         }
     ]
@@ -222,12 +246,12 @@ This condition verifies that a minimum amount of inner conditions are true
         },
         {
             "type" : "blablalib:equals",
-            "variable" : "my_variable"
+            "variable" : "my_variable",
             "value" : "Bob"
         },
         {
             "type" : "blablalib:greater",
-            "variable" : "my_other_variable"
+            "variable" : "my_other_variable",
             "value" : 5
         }
     ]

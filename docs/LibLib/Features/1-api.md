@@ -23,32 +23,54 @@ Methods :
      
 Events :
 
-- `DialogueCompletedEvent` : An event that is triggered when a dialogue is completed. It provides the player and the dialogue ID that was completed.
+- `DIALOGUE_COMPLETED` : An event that is triggered when a dialogue is completed. It provides the `ServerPlayer` and the dialogue ID that was completed.
+
+```java
+BlablaLibAPI.DIALOGUE_COMPLETED.register((player, dialogueId) -> {
+    // ...
+});
+```
 
 # CutsceneLibAPI
 
 CutsceneLibAPI is an API for playing cutscenes.<br>
-It allows you to play a cutscene for a player or a collection of players, with an optional anchor position and rotation.
+It allows you to play a cutscene for a player or a collection of players, with an optional anchor position and rotation.<br>
+It also provides an event that is triggered when a cutscene is completed.
 
 Methods :
+
+- `playCutsceneLocal(ResourceLocation cutsceneId)` : **Client side only**. Plays a cutscene for the local player. The anchor position and rotation will be the player's current position and rotation.
+- `playCutsceneLocal(ResourceLocation cutsceneId, Vec3 anchorPosition, Vector3f anchorRotation)` : **Client side only**. Plays a cutscene for the local player with an anchor position and rotation.
 
 - `playCutscene(ServerPlayer player, ResourceLocation cutsceneId)` : Plays a cutscene for the specified player. The anchor position and rotation will be the player's current position and rotation.
 - `playCutscene(ServerPlayer player, ResourceLocation cutsceneId, Vec3 anchorPosition, Vector3f anchorRotation)` : Plays a cutscene for the specified player with an anchor position and rotation.
 - `playCutscene(Collection<ServerPlayer> players, ResourceLocation cutsceneId)` : Plays a cutscene for the specified collection of players. The anchor position and rotation will be the players' current position and rotation.
 - `playCutscene(Collection<ServerPlayer> players, ResourceLocation cutsceneId, Vec3 anchorPosition, Vector3f anchorRotation)` : Plays a cutscene for the specified collection of players with an anchor position and rotation.
 
+Events :
+
+- `CUTSCENE_COMPLETED` : An event that is triggered when a cutscene is completed. It provides the cutscene ID that was completed.
+
+```java
+CutsceneLibAPI.CUTSCENE_COMPLETED.register(cutsceneId -> {
+    // ...
+});
+```
+
 # QuestsLibAPI
 
 QuestsLibAPI is an API for interacting with the quests system.<br>
 It allows you to start a quest for a player, set the completion state of a quest or task for a player, check if a quest is completed for a player, get the completion percentage of a quest for a player, and get the current task of a quest for a player.<br>
 
-<div class="anotate" markdown>
 Methods :
 
 - `startQuest(Player player, ResourceLocation questId)` : Starts a quest for the specified player.
 - `setQuestCompletionState(Player player, ResourceLocation questId, String newState)`: Sets the completion state of a quest for the specified player.
 - `setTaskCompletionState(Player player, ResourceLocation questId, ResourceLocation taskId, String newState)` : Sets the completion state of a task for the specified player.
 - `isQuestCompleted(Player player, ResourceLocation questId)` : Checks if a quest is completed for the specified player.
+- `isTaskCompleted(Player player, ResourceLocation questId, ResourceLocation taskId)` : Checks if a task of a quest is completed for the specified player.
+- `getQuestCompletionState(Player player, ResourceLocation questId)` : Gets the completion state of a quest for the specified player.
+- `getTaskCompletionState(Player player, ResourceLocation questId, ResourceLocation taskId)` : Gets the completion state of a task for the specified player.
 - `getQuestCompletion(Player player, ResourceLocation questId)` : Gets the completion percentage of a quest for the specified player.
 - `getCurrentTask(Player player, ResourceLocation questId)` : Gets the current task of a quest for the specified player.
 
@@ -61,4 +83,5 @@ Events :
 
     The state of the quest or task, can be one of the following : `none`, `started`, `completed`.
 
-</div>
+!!! note "When the mod is not installed"
+    If the mod is not installed, LibLib provides an empty implementation of the API : methods do nothing and return `false`, `0`, an empty string or an empty `Optional`.
